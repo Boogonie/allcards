@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  root 'static_pages#home'
+
+  root 'credit_cards#display'
+
+  get 'credit_cards/display'
 
   get 'static_pages/help'
 
