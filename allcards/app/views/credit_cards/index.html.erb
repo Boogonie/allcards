@@ -1,0 +1,9 @@
+<h1>Credit Cards</h1>
+
+<p><%= link_to "Add a CreditCard", new_credit_card_path %></p>
+
+<ul>
+  <% @credit_cards.each do |card| %>
+    <li><%= link_to card.name, credit_card_path(card) %></li>
+  <% end %>
+</ul>

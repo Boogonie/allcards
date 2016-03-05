@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  root 'credit_cards#display'
+  root 'credit_cards#index'
 
-  get 'credit_cards/display'
+  resources :credit_cards, except: [ :destroy ]
 
   get 'static_pages/help'
 
