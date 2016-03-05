@@ -75,12 +75,7 @@
     <div class="col-md-8"><%= yield %></div>
     <div class="col-md-2">
       <h4>Credit Card Deals</h4>
-      <% @credit_cards.first do |card| %>
-        <h5><%= card.name %></h5>
-        <li><img src="<%= card.card_art %>"></li>
-        <li><%= card.issuer %></li>
-        <li>$<%= card.annual_fee %></li>
-      <% end %>
+
     </div>
   </div>
 </div>

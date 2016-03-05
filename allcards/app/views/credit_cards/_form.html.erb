@@ -1,0 +1,70 @@
+<% if flash[:error] %>
+  <div>
+    <%= flash[:error] %>
+  </div>
+<% end %>
+
+<%= form_for @credit_card do |f| %>
+  <div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  </div>
+
+  <div>
+  <%= f.label :card_art %>
+  <%= f.text_field :card_art %>
+  </div>
+
+  <div>
+  <%= f.label :issuer %>
+  <%= f.text_field :issuer %>
+  </div>
+
+  <div>
+  <%= f.label :annual_fee %>
+  <%= f.text_field :annual_fee %>
+  </div>
+
+  <div>
+  <%= f.label :standard_reward_rate %>
+  <%= f.text_field :standard_reward_rate %>
+  </div>
+
+  <div>
+  <%= f.label :signup_reward %>
+  <%= f.text_field :signup_reward %>
+  </div>
+
+  <div>
+  <%= f.label :details %>
+  <%= f.text_area :details %>
+  </div>
+
+  <div>
+  <%= f.label :regular_purchase_apr %>
+  <%= f.text_field :regular_purchase_apr %>
+  </div>
+
+  <div>
+  <%= f.label :intro_purchase_apr %>
+  <%= f.text_field :intro_purchase_apr %>
+  </div>
+
+  <div>
+  <%= f.label :intro_bt_apr %>
+  <%= f.text_field :intro_bt_apr %>
+  </div>
+
+  <div>
+  <%= f.label :credit_needed %>
+  <%= f.text_field :credit_needed %>
+  </div>
+  <%= form_for @signup_reward do |f| %>
+    <div>
+      <%= f.label :amount %>
+      <%= f.text_field :amount %>
+    </div>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>

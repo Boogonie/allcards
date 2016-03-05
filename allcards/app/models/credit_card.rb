@@ -1,5 +1,7 @@
 class CreditCard < ActiveRecord::Base
-  belongs_to :signup_reward
+  has_one :signup_reward
   has_many :categories
   has_many :reward_rates, through: :categories
+
+  accepts_nested_attributes_for :signup_reward, :allow_destroy => true
 end

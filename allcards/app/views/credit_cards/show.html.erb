@@ -1,4 +1,8 @@
 <h1><%= @credit_card.name %></h1>
 
-<%= link_to 'Credit Card List', credit_card_path %>
+<%= @credit_card.signup_reward_id %>
+
+
+
+<%= link_to 'Credit Card List', credit_cards_path %>
 <%= link_to 'edit Credit Card', edit_credit_card_path(@credit_card) %>
