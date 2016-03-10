@@ -31,11 +31,6 @@
   </div>
 
   <div>
-  <%= f.label :signup_reward %>
-  <%= f.text_field :signup_reward %>
-  </div>
-
-  <div>
   <%= f.label :details %>
   <%= f.text_area :details %>
   </div>
@@ -59,10 +54,14 @@
   <%= f.label :credit_needed %>
   <%= f.text_field :credit_needed %>
   </div>
-  <%= form_for @signup_reward do |f| %>
+  <%= f.fields_for :signup_reward do |builder| %>
     <div>
-      <%= f.label :amount %>
-      <%= f.text_field :amount %>
+      <%= builder.label :amount %>
+      <%= builder.text_field :amount %>
+    </div>
+    <div>
+      <%= builder.label :spend_requirement %>
+      <%= builder.text_field :spend_requirement %>
     </div>
   <% end %>
 

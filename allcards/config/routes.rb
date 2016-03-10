@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :credit_cards, except: [ :destroy ]
 
+  resources :signup_rewards, except: [ :destroy ]
+
   get 'static_pages/help'
 
   get 'static_pages/about'
