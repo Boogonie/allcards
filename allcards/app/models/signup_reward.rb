@@ -1,3 +1,3 @@
 class SignupReward < ActiveRecord::Base
-  belongs_to :credit_card
+  has_many :credit_card
 end

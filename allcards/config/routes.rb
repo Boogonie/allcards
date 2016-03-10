@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
   root 'credit_cards#index'
 
-  resources :credit_cards, except: [ :destroy ]
+  resources :credit_cards
 
-  resources :signup_rewards, except: [ :destroy ]
+  resources :signup_rewards
+
+  resources :categories
+
+  resources :reward_rates
 
   get 'static_pages/help'
 
