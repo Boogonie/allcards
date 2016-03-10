@@ -13,7 +13,7 @@ ActiveAdmin.register Category do
 #   permitted
 # end
 
-permit_params :name
+permit_params :name, :credit_card_id, :reward_rate_id
 
 
 end

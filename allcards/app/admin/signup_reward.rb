@@ -13,7 +13,7 @@ ActiveAdmin.register SignupReward do
 #   permitted
 # end
 
-permit_params :amount, :spending_requirement
+permit_params :amount, :spending_requirement, :reward_type, :value
 
 
 end
