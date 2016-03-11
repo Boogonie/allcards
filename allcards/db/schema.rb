@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160310224307) do
+ActiveRecord::Schema.define(version: 20160311111835) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -78,14 +78,15 @@ ActiveRecord::Schema.define(version: 20160310224307) do
 
   create_table "signup_rewards", force: :cascade do |t|
     t.integer  "amount"
+    t.string   "reward_type"
     t.integer  "spend_requirement"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.integer  "credit_card_id"
-    t.string   "reward_type"
     t.integer  "value"
     t.integer  "time_limit"
     t.string   "time_type"
+    t.integer  "value_travel"
   end
 
 end
