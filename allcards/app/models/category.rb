@@ -1,4 +1,4 @@
 class Category < ActiveRecord::Base
-  belongs_to :credit_card
-  belongs_to :reward_rate
+  has_many :reward_rates
+  has_many :credit_cards, through: :reward_rates
 end
