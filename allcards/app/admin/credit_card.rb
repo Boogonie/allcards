@@ -13,5 +13,6 @@ ActiveAdmin.register CreditCard do
 #   permitted
 # end
 
+permit_params signup_reward_ids: []
 
 end
