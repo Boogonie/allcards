@@ -13,7 +13,6 @@ ActiveAdmin.register RewardRate do
 #   permitted
 # end
 
-permit_params :percent
-
+permit_params :percent, :credit_card_id, :category_id
 
 end
