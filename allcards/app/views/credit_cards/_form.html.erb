@@ -1,69 +1,18 @@
-<% if flash[:error] %>
+<%= form_tag(credit_cards_cbcalc_path, method: "post") do %>
   <div>
-    <%= flash[:error] %>
-  </div>
-<% end %>
-
-<%= form_for @credit_card do |f| %>
-  <div>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  </div>
-
-  <div>
-  <%= f.label :card_art %>
-  <%= f.text_field :card_art %>
-  </div>
-
-  <div>
-  <%= f.label :issuer %>
-  <%= f.text_field :issuer %>
+  <%= label_tag 'Groceries:' %>
+  <%= number_field_tag 'Groceries' %>
+  <br />
+  <br />
+  <%= label_tag 'Gas:' %>
+  <%= number_field_tag 'Gas' %>
+  <br />
+  <br />
+  <%= label_tag 'Everyday Spending:' %>
+  <%= number_field_tag 'Everyday Spending' %>
+  <br />
+  <br />
+  <%= submit_tag 'Let\'s Do This!' %>
   </div>
 
-  <div>
-  <%= f.label :annual_fee %>
-  <%= f.text_field :annual_fee %>
-  </div>
-
-  <div>
-  <%= f.label :standard_reward_rate %>
-  <%= f.text_field :standard_reward_rate %>
-  </div>
-
-  <div>
-  <%= f.label :details %>
-  <%= f.text_area :details %>
-  </div>
-
-  <div>
-  <%= f.label :regular_purchase_apr %>
-  <%= f.text_field :regular_purchase_apr %>
-  </div>
-
-  <div>
-  <%= f.label :intro_purchase_apr %>
-  <%= f.text_field :intro_purchase_apr %>
-  </div>
-
-  <div>
-  <%= f.label :intro_bt_apr %>
-  <%= f.text_field :intro_bt_apr %>
-  </div>
-
-  <div>
-  <%= f.label :credit_needed %>
-  <%= f.text_field :credit_needed %>
-  </div>
-  <%= f.fields_for :signup_reward do |builder| %>
-    <div>
-      <%= builder.label :amount %>
-      <%= builder.text_field :amount %>
-    </div>
-    <div>
-      <%= builder.label :spend_requirement %>
-      <%= builder.text_field :spend_requirement %>
-    </div>
-  <% end %>
-
-  <%= f.submit %>
 <% end %>

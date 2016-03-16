@@ -1,9 +1,22 @@
 <h1>Credit Cards</h1>
 
-<p><%= link_to "Add a CreditCard", new_credit_card_path %></p>
+<%= render 'form' %>
+<br />
 
-<ul>
-  <% @credit_cards.each do |card| %>
-    <li><%= link_to card.name, credit_card_path(card) %></li>
-  <% end %>
-</ul>
+<% @credit_cards.each do |card| %>
+  <div class="card-impression snap-feat">
+    <div class="col card">
+      <div class="img-wrap">
+        <%= image_tag card.card_art %>
+      </div>
+    </div>
+    <div class="col info">
+        <%= link_to card.name, credit_card_path(card) %>
+    </div>
+    <div class="col last">
+		    <div class="wrap">
+          <a class="btn btn-success btn-lrg" href="http://www.discover.com">Apply Now</a>
+        </div>
+    </div>
+  </div>
+<% end %>

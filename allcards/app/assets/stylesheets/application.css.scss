@@ -1,0 +1,107 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.navbar .nav > li > a {
+    color:  #336699;
+}
+
+/*
+ * This styles the credit card box display
+ */
+
+.snap-feat {
+    padding-bottom: 20px;
+    width: 100%;
+    float: right;
+    margin: -6px 0 0;
+    padding: 20px 0 15px;
+    position: relative;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+.snap-feat .card {
+    width: 180px;
+    text-align: center;
+    width: 30%;
+    padding-right: 2%;
+}
+
+.snap-feat .col {
+    float: left;
+}
+
+.snap-feat .card .img-wrap {
+    margin-bottom: 10px;
+}
+
+.snap-feat .info {
+    width: 420px;
+    padding-right: 15px;
+    text-align: left;
+    width: 48%;
+    padding-right: 2%;
+}
+
+.snap-feat .col {
+    float: left;
+}
+
+.snap-feat .info a {
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.snap-feat .col.last {
+    width: 156px;
+    float: right;
+    width: 22%;
+}
+
+.btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+.btn a {
+  text-color: white;
+  text-decoration: none;
+}
