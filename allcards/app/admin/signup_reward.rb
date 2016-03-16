@@ -14,6 +14,6 @@ ActiveAdmin.register SignupReward do
 # end
 
 permit_params :amount,  :reward_type, :spend_requirement, :value, :time_limit,
-:time_type, :value_travel, credit_card_ids: []
+:time_type, :value_travel
 
 end

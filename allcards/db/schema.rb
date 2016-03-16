@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160316171638) do
+ActiveRecord::Schema.define(version: 20160316173551) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -68,7 +68,10 @@ ActiveRecord::Schema.define(version: 20160316171638) do
     t.string   "credit_needed"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "signup_reward_id"
   end
+
+  add_index "credit_cards", ["signup_reward_id"], name: "index_credit_cards_on_signup_reward_id"
 
   create_table "reward_rates", force: :cascade do |t|
     t.float    "percent"
@@ -86,7 +89,6 @@ ActiveRecord::Schema.define(version: 20160316171638) do
     t.integer  "spend_requirement"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
-    t.integer  "credit_card_id"
     t.string   "reward_type"
     t.integer  "value"
     t.integer  "time_limit"
