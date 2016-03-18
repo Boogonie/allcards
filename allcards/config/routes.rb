@@ -9,8 +9,8 @@ Rails.application.routes.draw do
 
   resources :credit_cards
 
-  #post 'credit_cards/cbcalc'
   post 'reward_rates/cbcalc'
+  #post 'credit_cards/cbcalc'
   #post 'calculators/cbcalc'
 
   resources :signup_rewards
