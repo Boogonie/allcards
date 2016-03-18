@@ -40,6 +40,10 @@ class CreditCardsController < ApplicationController
     end
   end
 
+  def cbcalc
+
+  end
+
   private
 
   def credit_card_params

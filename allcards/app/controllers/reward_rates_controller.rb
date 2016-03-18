@@ -1,4 +1,4 @@
-class RewardRateController < ApplicationController
+class RewardRatesController < ApplicationController
 
   def new
     @reward_rate = RewardRate.new
@@ -13,6 +13,10 @@ class RewardRateController < ApplicationController
       flash.now[:error] = @category.errors.messages.first.join(" ")
       render 'new'
     end
+  end
+
+  def cbcalc
+
   end
 
   private
