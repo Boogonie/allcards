@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'calculators/cbcalc'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -7,7 +9,7 @@ Rails.application.routes.draw do
 
   resources :credit_cards
 
-  post 'credit_cards/cbcalc'
+  post 'calculators/cbcalc'
 
   resources :signup_rewards
 
