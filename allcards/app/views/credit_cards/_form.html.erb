@@ -1,15 +1,15 @@
 <%= form_tag(reward_rates_cbcalc_path, method: "post") do %>
   <div>
   <%= label_tag 'Groceries:' %>
-  <%= number_field_tag 'Groceries' %>
+  <%= number_field_tag 'groceries' %>
   <br />
   <br />
   <%= label_tag 'Gas:' %>
-  <%= number_field_tag 'Gas' %>
+  <%= number_field_tag 'gas' %>
   <br />
   <br />
   <%= label_tag 'Everyday Spending:' %>
-  <%= number_field_tag 'Everyday Spending' %>
+  <%= number_field_tag 'everyday_spending' %>
   <br />
   <br />
   <%= submit_tag 'Let\'s Do This!' %>

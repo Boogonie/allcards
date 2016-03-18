@@ -16,6 +16,9 @@ class RewardRatesController < ApplicationController
   end
 
   def cbcalc
+    @groceries = params[:groceries]
+    @gas = params[:gas]
+    @everyday_spending = params[:everyday_spending]
 
   end
 
