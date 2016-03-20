@@ -7,11 +7,7 @@ class CalculatorsController < ApplicationController
 
     @reward_rates = RewardRate.all
 
-    # @reward_rates.each do |rate|
-    #   rate.credit_card.name
-    #   rate.category.name
-    #   rate.percent
-    # end
+    @credit_cards = CreditCard.all
 
   end
 end
