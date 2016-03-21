@@ -105,3 +105,19 @@
   text-color: white;
   text-decoration: none;
 }
+
+/*
+ * Card Listing
+ */
+
+.card-listing {
+    border-bottom: 1px solid #143542;
+}
+
+.card-listings .card-listing .card-title-container .card-title {
+    padding: .5em 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0081bd;
+    -webkit-font-smoothing: antialiased;
+}
