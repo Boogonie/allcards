@@ -8,7 +8,7 @@
   <%= @category_rate %>
   <br /> -->
 
-  <table class="table table-bordered table-hover">
+  <table class="table table-bordered table-hover cbcalc">
     <thead>
       <tr>
         <th class="text-center">Card</th>
@@ -20,7 +20,7 @@
     </thead>
 
   <% @credit_cards.each do |card| %>
-      <% reward_rate_groceries = card.reward_rates.find{ |rr| rr.category.name == 'Groceries' } %>
+      <!-- <% reward_rate_groceries = card.reward_rates.find{ |rr| rr.category.name == 'Groceries' } %>
       <%= card.name %><br />
       Groceries Rate: <%= reward_rate_groceries.percent %><br />
       <strong>Grocery Cash Back</strong>: $ <%= (reward_rate_groceries.percent * params[:groceries].to_i) / 100 %>
@@ -34,7 +34,7 @@
       <% reward_rate_everyday = card.reward_rates.find{ |rr| rr.category.name == 'Everyday Spending' } %>
       Everday Rate: <%= reward_rate_everyday.percent %> : <%= card.name %><br />
       <strong>Everyday Cash Back</strong>: $ <%= (reward_rate_everyday.percent * params[:everyday].to_i) / 100 %>
-      <br />
+      <br /> -->
 
       <% @cash_back  = ((reward_rate_groceries.percent * params[:groceries].to_i) +
                         (reward_rate_gas.percent       * params[:gas].to_i)       +
@@ -43,7 +43,7 @@
       <% @reward_rate = @cash_back / ((params[:groceries].to_i + params[:gas].to_i + params[:everyday].to_i) * 12) * 100 %>
       <tbody>
         <tr>
-          <td colspan="5"><%= link_to card.name, credit_card_path(card) %></td>
+          <td colspan="5"><%= card.name %></td>
         </tr>
         <tr>
           <td><%= image_tag card.card_art, height: '128', width: '200' %></td>
