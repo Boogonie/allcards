@@ -5,33 +5,9 @@
   <%= @everyday_spending %>
   <br />
 
-<!-- <% @reward_rates.each do |rate| %>
-  <%= rate.credit_card.name %>
-  <%= rate.category.name %>
-  <%= rate.percent %>
-  <% if rate.category.name == 'Grocery Stores' %>
-    <%= rate.percent * @groceries.to_i / 100 %>
-  <% elsif rate.category.name == 'Gas' %>
-    <%= rate.percent * @groceries.to_i / 100 %>
-  <% else %>
-    <%= rate.percent * @groceries.to_i / 100 %>
-  <% end %>
-  <br /> -->
-
   <% @credit_cards.each do |card| %>
-    <h2><%= card.name %></h2>
-    
-    <!-- <% card.categories do |category| %>
-      <%= category.name %>
-    <% end %> -->
-
-      <!-- <% if rate.category.name == 'Grocery Stores' %>
-        <%= rate.percent * @groceries.to_i / 100 * 12 %>
-      <% elsif rate.category.name == 'Gas' %>
-        <%= rate.percent * @gas.to_i / 100 %>
-      <% else %>
-        <%= rate.percent * @everyday_spending.to_i / 100 %>
-      <% end %> -->
-      <br />
-    <% end %>
-<% end %>
+      <% reward_rate = card.reward_rates.find{ |rr| rr.category.name == 'Groceries' } %>
+      <% @cash_back  = reward_rate.percent * params[:groceries].to_i / 100 %>
+      <h2><%= card.name %></h2>
+      <%= @cash_back %>
+  <% end %>
