@@ -21,6 +21,11 @@
     color:  #336699;
 }
 
+a:link, a:visited {
+    text-decoration: none;
+    color: white;
+}
+
 /*
  * This styles the credit card box display
  */
@@ -80,7 +85,6 @@
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
-    color: white;
 }
 
 .btn:focus, .btn:active:focus, .btn.active:focus {
