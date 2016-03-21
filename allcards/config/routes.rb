@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
+  root 'credit_cards#index'
+
+  devise_for :users
 
   get 'calculators/cbcalc'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-
-  root 'credit_cards#index'
 
   resources :credit_cards
 

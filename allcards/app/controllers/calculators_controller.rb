@@ -1,5 +1,5 @@
 class CalculatorsController < ApplicationController
-
+  before_action :authenticate_user!
   def cbcalc
     @category_rate = { :Groceries => params[:groceries],
                        :Gas       => params[:gas],

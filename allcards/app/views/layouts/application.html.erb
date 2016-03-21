@@ -22,6 +22,13 @@
         <li><a href="#">Cash Back Cards</a></li>
         <li><a href="#">Travel Rewards Cards</a></li>
         <li><a href="#">2016 Credit Card Signup Deals</a></li>
+        <li><% if user_signed_in? %>
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+            <% else %>
+              <%= link_to 'Sign In', new_user_session_path %></li>
+              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <% end %>
+        </li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
