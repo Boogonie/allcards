@@ -8,4 +8,9 @@ class CreditCard < ActiveRecord::Base
     return reward_rate.percent
   end
 
+  def monthly_reward_by_category(category, spending)
+    reward_rate = self.reward_rate_by_category(category)
+    return spending * reward_rate
+  end
+
 end

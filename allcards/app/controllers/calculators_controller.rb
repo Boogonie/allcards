@@ -5,14 +5,15 @@ class CalculatorsController < ApplicationController
 
     @credit_cards = CreditCard.all #.includes([:categories, :reward_rates])
 
-    @credit_cards.each do |card|
-      
-      @cash_back = ((card.reward_rate_by_category('Groceries')         * params[:groceries].to_i) +
-                    (card.reward_rate_by_category('Gas')               * params[:gas].to_i)       +
-                    (card.reward_rate_by_category('Everyday Spending') * params[:everyday].to_i)) /
+    @credit_cards_and_rewards = @credit_cards.inject({}) do |memo, card|
+      cash_back = ( (card.monthly_reward_by_category('Groceries'        , params[:groceries].to_i)) +
+                    (card.monthly_reward_by_category('Gas'              , params[:gas].to_i))       +
+                    (card.monthly_reward_by_category('Everyday Spending', params[:everyday].to_i))) /
                     100 * 12
 
-      @reward_rate = @cash_back / ((params[:groceries].to_i + params[:gas].to_i + params[:everyday].to_i) * 12) * 100
+      reward_rate = cash_back / ((params[:groceries].to_i + params[:gas].to_i + params[:everyday].to_i) * 12) * 100
+
+      memo.merge(card => { cash_back: cash_back, reward_rate: reward_rate })
     end
 
   end
@@ -21,15 +22,13 @@ class CalculatorsController < ApplicationController
 
     @credit_cards = CreditCard.all
 
-  end
+    @my_cash_back = ((params[:my_groceries].to_i * params[:groceries].to_i) +
+                    (params[:my_gas].to_i       * params[:gas].to_i)       +
+                    (params[:my_everyday].to_i  * params[:everyday].to_i)) /
+                    100 * 12
 
-  #This code blocks is my attempt to move logic from view to controller to
-  #model
+    @my_reward_rate = @my_cash_back.to_f / ((params[:groceries].to_i + params[:gas].to_i + params[:everyday].to_i) * 12) * 100
 
-  def show_data
-    @groceries = params[:groceries].to_i
-    @gas       = params[:gas].to_i
-    @everday   = params[:everyday].to_i
   end
 
 end

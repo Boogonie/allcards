@@ -1,12 +1,5 @@
   <%= render 'cbcompare_form' %>
 
-  <% my_cash_back = ((params[:my_groceries].to_i * params[:groceries].to_i) +
-                     (params[:my_gas].to_i       * params[:gas].to_i)       +
-                     (params[:my_everyday].to_i  * params[:everyday].to_i)) /
-                     100 * 12 %>
-
-  <% my_reward_rate = my_cash_back.to_f / ((params[:groceries].to_i + params[:gas].to_i + params[:everyday].to_i) * 12) * 100 %>
-
   <p>Based on spending $<%=number_with_precision(params[:groceries], :precision => 0, :delimiter => ',') %> in groceries,
     $<%=number_with_precision(params[:gas], :precision => 0, :delimiter => ',') %> in gas and
     $<%=number_with_precision(params[:everyday], :precision => 0, :delimiter => ',') %> on all other purchases,
@@ -30,8 +23,8 @@
         <td class="text-center"><h4> <%= params[:my_groceries] %>%</h4></td>
         <td class="text-center"><h4> <%= params[:my_gas] %>%</h4></td>
         <td class="text-center"><h4> <%= params[:my_everyday] %>%</h4></td>
-        <td class="text-center"><h4> <%= my_reward_rate.round(2) %>%</h4></td>
-        <td class="text-center"><h4>$<%= number_with_precision(my_cash_back, :precision => 2, :delimiter => ',') %></h4></td>
+        <td class="text-center"><h4> <%= @my_reward_rate.round(2) %>%</h4></td>
+        <td class="text-center"><h4>$<%= number_with_precision(@my_cash_back, :precision => 2, :delimiter => ',') %></h4></td>
       </tr>
     </tbody>
   </table>
