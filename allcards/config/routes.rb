@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :credit_cards
 
   post 'calculators/cbcalc'
+  post 'calculators/cbcompare'
 
   resources :signup_rewards
 
