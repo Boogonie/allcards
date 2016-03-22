@@ -12,12 +12,6 @@
     </thead>
 
     <% @credit_cards.each do |card| %>
-      <% cash_back = ((card.reward_rate_by_category('Groceries')         * params[:groceries].to_i) +
-                      (card.reward_rate_by_category('Gas')               * params[:gas].to_i)       +
-                      (card.reward_rate_by_category('Everyday Spending') * params[:everyday].to_i))  /
-                      100 * 12 %>
-
-      <% reward_rate = cash_back / ((params[:groceries].to_i + params[:gas].to_i + params[:everyday].to_i) * 12) * 100 %>
       <tbody>
         <tr>
           <td colspan="5"><%= card.name %></td>
@@ -26,8 +20,8 @@
           <td><%= image_tag card.card_art, height: '128', width: '200' %></td>
           <td class="text-center"><h4>$<%= card.annual_fee %></h4></td>
           <td class="text-center"><h4>$<%= card.signup_bonus %></h4></td>
-          <td class="text-center"><h4><%= reward_rate.round(2) %>%</h4></td>
-          <td class="text-center"><h4>$<%= number_with_precision(cash_back, :precision => 2, :delimiter => ',') %></h4></td>
+          <td class="text-center"><h4> <%= @reward_rate.round(2) %>%</h4></td>
+          <td class="text-center"><h4>$<%= number_with_precision(@cash_back, :precision => 2, :delimiter => ',') %></h4></td>
         </tr>
       </tbody>
     <% end %>
