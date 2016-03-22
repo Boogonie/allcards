@@ -19,22 +19,10 @@
       </tr>
     </thead>
 
-  <% @credit_cards.each do |card| %>
-      <!-- <% reward_rate_groceries = card.reward_rates.find{ |rr| rr.category.name == 'Groceries' } %>
-      <%= card.name %><br />
-      Groceries Rate: <%= reward_rate_groceries.percent %><br />
-      <strong>Grocery Cash Back</strong>: $ <%= (reward_rate_groceries.percent * params[:groceries].to_i) / 100 %>
-      <br />
+    <% @credit_cards.each do |card| %>
+      <% reward_rate_groceries = card.reward_rates.find{ |rr| rr.category.name == 'Groceries' } %>
       <% reward_rate_gas = card.reward_rates.find{ |rr| rr.category.name == 'Gas' } %>
-      <%= card.name %><br />
-      Gas Rate: <%= reward_rate_gas.percent %><br />
-      <strong>Gas Cash Back</strong>: $ <%= (reward_rate_gas.percent * params[:gas].to_i) / 100 %>
-      <br />
-      <%= card.name %><br />
       <% reward_rate_everyday = card.reward_rates.find{ |rr| rr.category.name == 'Everyday Spending' } %>
-      Everday Rate: <%= reward_rate_everyday.percent %> : <%= card.name %><br />
-      <strong>Everyday Cash Back</strong>: $ <%= (reward_rate_everyday.percent * params[:everyday].to_i) / 100 %>
-      <br /> -->
 
       <% @cash_back  = ((reward_rate_groceries.percent * params[:groceries].to_i) +
                         (reward_rate_gas.percent       * params[:gas].to_i)       +
@@ -53,7 +41,7 @@
           <td class="text-center"><h4>$<%= number_with_precision(@cash_back, :precision => 2, :delimiter => ',') %></h4></td>
         </tr>
       </tbody>
-  <% end %>
+    <% end %>
     </table>
 
       <%= render 'form' %>
