@@ -13,4 +13,13 @@ class CalculatorsController < ApplicationController
 
   end
 
+  #This code blocks is my attempt to move logic from view to controller to
+  #model
+
+  def show_data
+    @groceries = params[:groceries].to_i
+    @gas       = params[:gas].to_i
+    @everday   = params[:everyday].to_i
+  end
+
 end

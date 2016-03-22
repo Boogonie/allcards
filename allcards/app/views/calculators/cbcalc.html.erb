@@ -1,13 +1,5 @@
 <h1>Really Hope this Works</h1>
 
-  <!-- <%= @groceries %>
-  <%= @gas %>
-  <%= @everyday_spending %>
-  <br />
-
-  <%= @category_rate %>
-  <br /> -->
-
   <table class="table table-bordered table-hover cbcalc">
     <thead>
       <tr>
@@ -20,15 +12,12 @@
     </thead>
 
     <% @credit_cards.each do |card| %>
-      <% reward_rate_groceries = card.reward_rates.find{ |rr| rr.category.name == 'Groceries' } %>
-      <% reward_rate_gas = card.reward_rates.find{ |rr| rr.category.name == 'Gas' } %>
-      <% reward_rate_everyday = card.reward_rates.find{ |rr| rr.category.name == 'Everyday Spending' } %>
+      <% cash_back = ((card.reward_rate_by_category('Groceries')         * params[:groceries].to_i) +
+                      (card.reward_rate_by_category('Gas')               * params[:gas].to_i)       +
+                      (card.reward_rate_by_category('Everyday Spending') * params[:everyday].to_i))  /
+                      100 * 12 %>
 
-      <% @cash_back  = ((reward_rate_groceries.percent * params[:groceries].to_i) +
-                        (reward_rate_gas.percent       * params[:gas].to_i)       +
-                        (reward_rate_everyday.percent  * params[:everyday].to_i))  /
-                        100 * 12 %>
-      <% @reward_rate = @cash_back / ((params[:groceries].to_i + params[:gas].to_i + params[:everyday].to_i) * 12) * 100 %>
+      <% reward_rate = cash_back / ((params[:groceries].to_i + params[:gas].to_i + params[:everyday].to_i) * 12) * 100 %>
       <tbody>
         <tr>
           <td colspan="5"><%= card.name %></td>
@@ -37,8 +26,8 @@
           <td><%= image_tag card.card_art, height: '128', width: '200' %></td>
           <td class="text-center"><h4>$<%= card.annual_fee %></h4></td>
           <td class="text-center"><h4>$<%= card.signup_bonus %></h4></td>
-          <td class="text-center"><h4><%= @reward_rate.round(2) %>%</h4></td>
-          <td class="text-center"><h4>$<%= number_with_precision(@cash_back, :precision => 2, :delimiter => ',') %></h4></td>
+          <td class="text-center"><h4><%= reward_rate.round(2) %>%</h4></td>
+          <td class="text-center"><h4>$<%= number_with_precision(cash_back, :precision => 2, :delimiter => ',') %></h4></td>
         </tr>
       </tbody>
     <% end %>
