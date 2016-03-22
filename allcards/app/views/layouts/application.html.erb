@@ -17,11 +17,8 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Best Credit Cards</a></li>
-        <li><a href="#">0% Credit Cards</a></li>
-        <li><a href="#">Cash Back Cards</a></li>
-        <li><a href="#">Travel Rewards Cards</a></li>
-        <li><a href="#">2016 Credit Card Signup Deals</a></li>
+        <li><%= link_to 'Cash Back Calculator', calculators_cbcalc_path %></li>
+        <li><%= link_to 'Cash Back Comparison', calculators_cbcompare_path %></li>
         <li><%= link_to 'About', static_pages_about_path %>
         <li><% if user_signed_in? %>
               <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
