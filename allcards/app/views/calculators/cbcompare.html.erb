@@ -1,10 +1,5 @@
   <%= render 'cbcompare_form' %>
 
-  <p>Based on spending $<%=number_with_precision(params[:groceries], :precision => 0, :delimiter => ',') %> in groceries,
-    $<%=number_with_precision(params[:gas], :precision => 0, :delimiter => ',') %> in gas and
-    $<%=number_with_precision(params[:everyday], :precision => 0, :delimiter => ',') %> on all other purchases,
-    here are your results:</p>
-
   <table class="table table-bordered table-hover cbcalc">
     <thead>
       <tr>
@@ -23,7 +18,7 @@
         <td class="text-center"><h4> <%= params[:my_groceries] %>%</h4></td>
         <td class="text-center"><h4> <%= params[:my_gas] %>%</h4></td>
         <td class="text-center"><h4> <%= params[:my_everyday] %>%</h4></td>
-        <td class="text-center"><h4> <%= @my_reward_rate.round(2) %>%</h4></td>
+        <td class="text-center"><h4> <%= @my_reward_rate == 0 ? '0.00' : @my_reward_rate.round(2) %>%</h4></td>
         <td class="text-center"><h4>$<%= number_with_precision(@my_cash_back, :precision => 2, :delimiter => ',') %></h4></td>
       </tr>
     </tbody>
@@ -40,17 +35,7 @@
       </tr>
     </thead>
 
-    <% @credit_cards.each do |card| %>
-      <% reward_rate_groceries = card.reward_rates.find{ |rr| rr.category.name == 'Groceries' } %>
-      <% reward_rate_gas       = card.reward_rates.find{ |rr| rr.category.name == 'Gas' } %>
-      <% reward_rate_everyday  = card.reward_rates.find{ |rr| rr.category.name == 'Everyday Spending' } %>
-
-      <% cash_back  = ((reward_rate_groceries.percent * params[:groceries].to_i) +
-                       (reward_rate_gas.percent       * params[:gas].to_i)       +
-                       (reward_rate_everyday.percent  * params[:everyday].to_i)) /
-                       100 * 12 %>
-
-      <% reward_rate = cash_back / ((params[:groceries].to_i + params[:gas].to_i + params[:everyday].to_i) * 12) * 100 %>
+    <% @credit_cards_and_rewards.sort { |a, b| b[1][:cash_back] <=> a[1][:cash_back] }.each do |card, rewards| %>
 
       <tbody>
         <tr>
@@ -60,8 +45,8 @@
           <td><%= image_tag card.card_art, height: '128', width: '200' %></td>
           <td class="text-center"><h4>$<%= card.annual_fee %></h4></td>
           <td class="text-center"><h4>$<%= card.signup_bonus %></h4></td>
-          <td class="text-center"><h4> <%= reward_rate.round(2) %>%</h4></td>
-          <td class="text-center"><h4>$<%= number_with_precision(cash_back, :precision => 2, :delimiter => ',') %></h4></td>
+          <td class="text-center"><h4> <%= rewards[:reward_rate].nan? ? '0.00' : rewards[:reward_rate].round(2) %>%</h4></td>
+          <td class="text-center"><h4>$<%= number_with_precision(rewards[:cash_back], :precision => 2, :delimiter => ',') %></h4></td>
         </tr>
       </tbody>
     <% end %>
