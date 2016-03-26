@@ -14,6 +14,6 @@ ActiveAdmin.register CreditCard do
 # end
 
 permit_params :name, :card_art, :issuer, :annual_fee, :standard_reward_rate, :signup_bonus, :details,
-:regular_purchase_apr, :intro_purchase_apr, :intro_bt_apr, :credit_needed, :signup_reward_id
+:regular_purchase_apr, :intro_purchase_apr, :intro_bt_apr, :credit_needed, :signup_reward_id, :primary_reward, :app_link
 
 end

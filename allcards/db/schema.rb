@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160326002915) do
+ActiveRecord::Schema.define(version: 20160326130424) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -73,6 +73,8 @@ ActiveRecord::Schema.define(version: 20160326002915) do
     t.string   "foreign_transaction_fee"
     t.string   "cash_advance_fee"
     t.string   "penalty_apr"
+    t.string   "primary_reward"
+    t.string   "app_link"
   end
 
   add_index "credit_cards", ["signup_reward_id"], name: "index_credit_cards_on_signup_reward_id"

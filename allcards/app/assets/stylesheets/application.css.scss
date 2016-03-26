@@ -10,20 +10,67 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
  *= require_self
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.navbar .nav > li > a {
-    color:  #336699;
+/*
+ * Global styling
+ */
+
+a, a:link, a visited {
+   text-decoration: none;
+ }
+
+.pad10 {
+   padding: 10px;
+ }
+
+.pad2 {
+   padding: 2px;
+ }
+
+.padtpbt10 {
+    padding-top: 10px;
+    padding-right: 0px;
+    padding-bottom: 10px;
+    padding-left: 0px;
 }
 
-.btn a:link, a:visited {
+.margbt10 {
+   margin-bottom: 10px;
+ }
+
+.margtp20 {
+   margin-top: 20px;
+ }
+
+.text-16 {
+   font-size: 16px;
+ }
+
+.text-17 {
+   font-size: 17px;
+ }
+
+.BStrokeTop {
+    border-width: 1px 0px 0px 0px;
+}
+
+.BStroke {
+    border-style: solid;
+    border-color: #dadada;
+}
+
+.btn {
+   font-weight: 700;
+ }
+
+.navbar .nav > li > a {
+    color:  #336699;
     text-decoration: none;
-    color: white;
 }
 
 /*
@@ -79,37 +126,6 @@
     width: 22%;
 }
 
-.btn {
-    padding: 14px 24px;
-    border: 0 none;
-    font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-.btn:focus, .btn:active:focus, .btn.active:focus {
-    outline: 0 none;
-}
-
-.btn-primary {
-    background: #0099cc;
-    color: #ffffff;
-}
-
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-    background: #33a6cc;
-}
-
-.btn-primary:active, .btn-primary.active {
-    background: #007299;
-    box-shadow: none;
-}
-
-.btn a {
-  text-color: white;
-  text-decoration: none;
-}
-
 /*
  * Card Listing
  */
@@ -125,3 +141,7 @@
     color: #0081bd;
     -webkit-font-smoothing: antialiased;
 }
+
+/*
+ * Sidebar Credit Card Deals
+ */

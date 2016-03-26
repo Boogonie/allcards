@@ -1,0 +1,29 @@
+<div class="margbt10 text-left text-muted">
+  <%= link_to @credit_cards.first.name, @credit_cards.first.app_link, target: "_blank" %>
+</div>
+<div style="height:100px;">
+  <img class="pull-left" src="<%= @credit_cards.first.card_art %>" style="max-width:122px; max-height:90px;">
+  <div class="pull-right">
+    <div class="pad10">
+      4 out of 5 stars
+    </div>
+    <%= link_to "More Details", @credit_cards.first.app_link, target: "_blank", class: "btn btn-success" %>
+  </div>
+</div>
+<div class="text-17 text-center text-muted">
+  Rewards
+  <div class="text-bold">
+    <strong><%= @credit_cards.first.primary_reward %><span><sup>‡</sup></span></strong>
+  </div>
+</div>
+<div class="clearfix margtp20">
+  <div class="text-muted text-16 BStroke BStrokeTop padtpbt10">
+    <div class="pull-left">Annual Fee</div>
+    <span class="pull-right">$<%= @credit_cards.first.annual_fee %><span><sup>‡</sup></span></span>
+  </div>
+  <div class="clearfix"></div>
+  <div class="text-muted text-16 padtpbt10">
+    <div class="pull-left">Signup Bonus</div>
+    <span class="pull-right">$<%= @credit_cards.first.signup_reward.amount %><span><sup>‡</sup></span></span>
+  </div>
+</div>
