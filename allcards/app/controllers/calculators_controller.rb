@@ -27,7 +27,9 @@ class CalculatorsController < ApplicationController
                      (params[:my_everyday].to_i  * params[:everyday].to_i)) /
                      100 * 12
 
-    @my_reward_rate = @my_cash_back.to_f / ((params[:groceries].to_i + params[:gas].to_i + params[:everyday].to_i) * 12) * 100
+
+
+    @my_reward_rate = @my_cash_back.to_f / ((params[:groceries].to_f + params[:gas].to_f + params[:everyday].to_f) * 12) * 100
 
     @credit_cards_and_rewards = @credit_cards.inject({}) do |memo, card|
       cash_back =  ((card.monthly_reward_by_category('Groceries'        , params[:groceries].to_i)) +

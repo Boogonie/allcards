@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321181713) do
+ActiveRecord::Schema.define(version: 20160326002915) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -57,16 +57,22 @@ ActiveRecord::Schema.define(version: 20160321181713) do
     t.string   "card_art"
     t.string   "issuer"
     t.integer  "annual_fee"
-    t.integer  "standard_reward_rate"
-    t.integer  "signup_bonus"
     t.text     "details"
     t.string   "regular_purchase_apr"
     t.string   "intro_purchase_apr"
     t.string   "intro_bt_apr"
     t.string   "credit_needed"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "signup_reward_id"
+    t.string   "annual_fee_description"
+    t.string   "intro_purchase_period"
+    t.string   "intro_bt_period"
+    t.string   "intro_bt_fee"
+    t.string   "late_payment_fee"
+    t.string   "foreign_transaction_fee"
+    t.string   "cash_advance_fee"
+    t.string   "penalty_apr"
   end
 
   add_index "credit_cards", ["signup_reward_id"], name: "index_credit_cards_on_signup_reward_id"
@@ -77,6 +83,9 @@ ActiveRecord::Schema.define(version: 20160321181713) do
     t.datetime "updated_at",     null: false
     t.integer  "credit_card_id"
     t.integer  "category_id"
+    t.integer  "spend_cap"
+    t.integer  "time_period"
+    t.integer  "value"
   end
 
   add_index "reward_rates", ["category_id"], name: "index_reward_rates_on_category_id"
