@@ -1,0 +1,33 @@
+<h1>Balance Transfer Credit Cards</h1>
+
+<p>A balance transfer credit card is an excellent way to pay down debt. These cards allow you to transfer high interest credit card
+  and other debt at lower interest rates. Each of the cards listed here offer 0% balance transfer deals.</p>
+
+<p>As you review the options, keep the following in mind:</p>
+
+<ul>
+  <li>Transfer Fees: Most balance transfer offers charge a fee. The fee is calculated as a percentage of the amount transferred.
+  A 3% fee, for example, would mean a fee of $30 for every $1,000 transferred.</li>
+  <li>Some Transfers are Free: Not every card charges a transfer fee. While no fee balance transfers are rare, they are available
+  and listed below.</li>
+  <li>0% on Purchases:</li>
+  <li>Other Features:</li>
+</ul>
+
+<% @credit_cards.each do |card| %>
+  <div class="card-impression snap-feat">
+    <div class="col card">
+      <div class="img-wrap">
+        <%= image_tag card.card_art, height: '128', width: '200'  %>
+      </div>
+    </div>
+    <div class="col info">
+        <%= link_to card.name, credit_card_path(card) %>
+    </div>
+    <div class="col last">
+		    <div class="wrap">
+          <a class="btn btn-success btn-lrg" href="http://www.discover.com">Apply Now</a>
+        </div>
+    </div>
+  </div>
+<% end %>

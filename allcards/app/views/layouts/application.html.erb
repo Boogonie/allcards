@@ -1,14 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:title) %> | Ruby on Rails Tutorial Sample App</title>
+  <title><%= full_title(yield(:title)) %></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand text-warning" href="http://localhost:3000/">allCards</a>
+    </div>
 
-<%= yield %>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Cash Back Calculator', calculators_cbcalc_path %></li>
+        <li><%= link_to 'Cash Back Comparison', calculators_cbcompare_path %></li>
+        <li><%= link_to 'About', static_pages_about_path %>
+        <li><% if user_signed_in? %>
+              <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
+            <% else %>
+              <%= link_to 'Sign In', new_user_session_path %></li>
+              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+            <% end %>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="container">
+  <div class="row">
+    <!-- <div class="col-md-2">
+    <ul>
+      <li>Balance Transfer</li>
+      <li>Cash Back</li>
+      <li>Travel Rewards</li>
+      <li>Gas Credit Cards</li>
+      <li>Low Interest</li>
+      <li>Student Cards</li>
+    </ul>
+    </div> -->
+    <div class="col-md-8"><%= yield %></div>
+    <div class="col-md-3">
+      <%= render "layouts/right_sidebar" %>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

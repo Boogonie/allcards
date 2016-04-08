@@ -1,9 +1,30 @@
 Rails.application.routes.draw do
-  root 'static_pages#home'
+  root 'credit_cards#index'
+
+  devise_for :users
+
+  get 'calculators/cbcalc'
+  get 'calculators/cbcompare'
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
+  resources :credit_cards
+
+  post 'calculators/cbcalc'
+  post 'calculators/cbcompare'
+
+  resources :signup_rewards
+
+  resources :categories
+
+  resources :reward_rates
 
   get 'static_pages/help'
 
   get 'static_pages/about'
+
+  get 'static_pages/balance_transfer'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

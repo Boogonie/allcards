@@ -1,0 +1,30 @@
+
+  <%= render 'cbcalc_form' %>
+
+  <table class="table table-bordered table-hover cbcalc">
+    <thead>
+      <tr>
+        <th class="text-center">Card</th>
+        <th class="text-center">Annual Fee</th>
+        <th class="text-center">Bonus</th>
+        <th class="text-center">Reward Rate</th>
+        <th class="text-center">Annual Rewards Value</th>
+      </tr>
+    </thead>
+
+    <% @credit_cards_and_rewards.sort { |a, b| b[1][:cash_back] <=> a[1][:cash_back] }.each do |card, rewards| %>
+
+      <tbody>
+        <tr>
+          <td colspan="5"><%= card.name %></td>
+        </tr>
+        <tr>
+          <td><%= image_tag card.card_art, height: '128', width: '200' %></td>
+          <td class="text-center"><h4>$<%= card.annual_fee %></h4></td>
+          <td class="text-center"><h4>$<%= card.signup_bonus %></h4></td>
+          <td class="text-center"><h4> <%= rewards[:reward_rate].nan? ? '0.00' : rewards[:reward_rate].round(2) %>%</h4></td>
+          <td class="text-center"><h4>$<%= number_with_precision(rewards[:cash_back], :precision => 2, :delimiter => ',') %></h4></td>
+        </tr>
+      </tbody>
+    <% end %>
+    </table>

@@ -8,4 +8,8 @@ class StaticPagesController < ApplicationController
   def about
   end
 
+  def balance_transfer
+    @credit_cards = CreditCard.all
+  end
+
 end

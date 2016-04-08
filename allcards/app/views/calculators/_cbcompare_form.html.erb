@@ -1,0 +1,46 @@
+<h2>Compare Your Cash Back Card</h2>
+<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  Enter Your Spending
+</button>
+<div class="collapse" id="collapseExample">
+<%= form_tag(calculators_cbcompare_path, method: "post") do %>
+  <div class="well col-md-12">
+  <h4><center>Enter your cash back card details:</center></h4>
+  <div class="text-right">
+  <%= label_tag 'Card Name' %>
+  <%= text_field_tag 'my_card_name', params[:my_card_name] %>
+  <br />
+  <br />
+  <%= label_tag 'Groceries %:' %>
+  <%= number_field_tag 'my_groceries', params[:my_groceries], :step => 'any' %>
+  <br />
+  <br />
+  <%= label_tag 'Gas %:' %>
+  <%= number_field_tag 'my_gas', params[:my_gas], :step => 'any' %>
+  <br />
+  <br />
+  <%= label_tag 'Everyday Spending %:' %>
+  <%= number_field_tag 'my_everyday', params[:my_everyday], :step => 'any' %>
+  <br />
+  <hr>
+  </div>
+  <h4><center>Enter your monthly spending:</center></h4>
+  <div class="text-right">
+  <%= label_tag 'Groceries:' %>
+  <%= number_field_tag 'groceries', params[:groceries] %>
+  <br />
+  <br />
+  <%= label_tag 'Gas:' %>
+  <%= number_field_tag 'gas', params[:gas] %>
+  <br />
+  <br />
+  <%= label_tag 'Everyday Spending:' %>
+  <%= number_field_tag 'everyday', params[:everyday] %>
+  <br />
+  <br />
+  <%= submit_tag 'Let\'s Do This!' %>
+  </div>
+</div>
+</div>
+
+<% end %>

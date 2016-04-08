@@ -1,0 +1,21 @@
+<h2>Cash Back Card Calculator</h2>
+<p>Enter your monthly spending by category:</p>
+
+<%= form_tag(calculators_cbcalc_path, method: "post") do %>
+  <div class="well text-right col-md-10">
+  <%= label_tag 'Groceries:' %>
+  <%= number_field_tag 'groceries' %>
+  <br />
+  <br />
+  <%= label_tag 'Gas:' %>
+  <%= number_field_tag 'gas' %>
+  <br />
+  <br />
+  <%= label_tag 'Everyday Spending:' %>
+  <%= number_field_tag 'everyday' %>
+  <br />
+  <br />
+  <%= submit_tag 'Let\'s Do This!' %>
+  </div>
+
+<% end %>

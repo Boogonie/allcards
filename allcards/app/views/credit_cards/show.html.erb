@@ -1,0 +1,14 @@
+<h1><%= @credit_card.name %></h1>
+
+  <%= @credit_card.intro_purchase_apr %>
+  <br />
+  <%= @credit_card.details %>
+
+  Signup Bonus: $<%= @credit_card.signup_reward.try :amount %>
+  <br />
+  Spending Requirement: $<%= @credit_card.signup_reward.try :spend_requirement %>
+  <br />
+
+<%= link_to 'Credit Card List', credit_cards_path %>
+<br />
+<%= link_to 'Edit Credit Card', edit_credit_card_path(@credit_card) %>

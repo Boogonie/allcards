@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  card_art: MyString
+  issuer: MyString
+  annual_fee: 1
+  standard_reward_rate: 1
+  signup_bonus: 1
+  details: MyText
+  regular_purchase_apr: MyString
+  intro_purchase_apr: MyString
+  intro_bt_apr: MyString
+  credit_needed: MyString
+
+two:
+  name: MyString
+  card_art: MyString
+  issuer: MyString
+  annual_fee: 1
+  standard_reward_rate: 1
+  signup_bonus: 1
+  details: MyText
+  regular_purchase_apr: MyString
+  intro_purchase_apr: MyString
+  intro_bt_apr: MyString
+  credit_needed: MyString

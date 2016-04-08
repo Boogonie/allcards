@@ -1,0 +1,147 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+/*
+ * Global styling
+ */
+
+a, a:link, a visited {
+   text-decoration: none;
+ }
+
+.pad10 {
+   padding: 10px;
+ }
+
+.pad2 {
+   padding: 2px;
+ }
+
+.padtpbt10 {
+    padding-top: 10px;
+    padding-right: 0px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+}
+
+.margbt10 {
+   margin-bottom: 10px;
+ }
+
+.margtp20 {
+   margin-top: 20px;
+ }
+
+.text-16 {
+   font-size: 16px;
+ }
+
+.text-17 {
+   font-size: 17px;
+ }
+
+.BStrokeTop {
+    border-width: 1px 0px 0px 0px;
+}
+
+.BStroke {
+    border-style: solid;
+    border-color: #dadada;
+}
+
+.btn {
+   font-weight: 700;
+ }
+
+.navbar .nav > li > a {
+    color:  #336699;
+    text-decoration: none;
+}
+
+/*
+ * This styles the credit card box display
+ */
+
+.snap-feat {
+    padding-bottom: 20px;
+    width: 100%;
+    float: right;
+    margin: -6px 0 0;
+    padding: 20px 0 15px;
+    position: relative;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+.snap-feat .card {
+    width: 180px;
+    text-align: center;
+    width: 30%;
+    padding-right: 2%;
+}
+
+.snap-feat .col {
+    float: left;
+}
+
+.snap-feat .card .img-wrap {
+    margin-bottom: 10px;
+}
+
+.snap-feat .info {
+    width: 420px;
+    padding-right: 15px;
+    text-align: left;
+    width: 48%;
+    padding-right: 2%;
+}
+
+.snap-feat .col {
+    float: left;
+}
+
+.snap-feat .info a {
+    color: #000;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.snap-feat .col.last {
+    width: 156px;
+    float: right;
+    width: 22%;
+}
+
+/*
+ * Card Listing
+ */
+
+.card-listing {
+    border-bottom: 1px solid #143542;
+}
+
+.card-listings .card-listing .card-title-container .card-title {
+    padding: .5em 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #0081bd;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+ * Sidebar Credit Card Deals
+ */
